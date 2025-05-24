@@ -31,4 +31,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: CI built RSS feed
-          file_pattern: output/apple-trailers.rss
+          file_pattern: output/
