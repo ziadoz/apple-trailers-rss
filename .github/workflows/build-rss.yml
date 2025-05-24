@@ -35,3 +35,4 @@ jobs:
         with:
           commit_message: CI built RSS feed
           file_pattern: output/apple-trailers.rss
+          add_options: -f
