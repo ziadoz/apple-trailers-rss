@@ -11,6 +11,9 @@ concurrency:
   group: php-script-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: write
+
 jobs:
   run-script:
     runs-on: ubuntu-latest
