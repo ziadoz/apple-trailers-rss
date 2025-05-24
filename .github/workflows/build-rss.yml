@@ -1,0 +1,25 @@
+name: Build RSS Feed
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: php-script-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install PHP 8.4
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+
+      - name: Build RSS Feed
+        run: php index.php
