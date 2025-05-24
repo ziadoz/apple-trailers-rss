@@ -27,8 +27,11 @@ jobs:
       - name: Build RSS Feed
         run: php index.php
 
+      - name: Show RSS Feed
+        run: cat output/apple-trailers.rss
+
       - name: Commit RSS Feed
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: CI built RSS feed
-          file_pattern: output/
+          file_pattern: output/apple-trailers.rss
