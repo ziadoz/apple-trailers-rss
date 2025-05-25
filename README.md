@@ -2,7 +2,7 @@
 
 An RSS feed of the Apple Trailers website. That's it.
 
-[https://raw.githubusercontent.com/ziadoz/apple-trailers-rss/refs/heads/main/output/apple-trailers.rss]()
+Note: This feed is for my personal use only with NetNewsWire, because I love films.
 
 ## Requirements
 
