@@ -33,9 +33,14 @@ jobs:
       - name: Show RSS Feed
         run: cat output/apple-trailers.rss
 
+      - name: Generate Version
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
+
       - name: Commit RSS Feed
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: CI built RSS feed
           file_pattern: output/apple-trailers.rss
           add_options: -f
+          tagging_message: ${{ steps.date.outputs.date }}
