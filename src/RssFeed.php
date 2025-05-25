@@ -37,8 +37,8 @@ readonly class RssFeed
             $writer->writeElement('title', $item['title']);
             $writer->writeElement('link', $item['link']);
             $writer->startElement('description');
-            $writer->writeCdata(sprintf('%s: <a href="%s">%s</a><br><br>', $item['title'], $item['link'], $item['link']));
-            $writer->writeCdata(sprintf('<img src="%s" alt="%s">', $item['image'], $item['title']));
+            $writer->writeCdata(sprintf('<p>%s: <a href="%s">%s</a></p>', $item['title'], $item['link'], $item['link']));
+            $writer->writeCdata(sprintf('<p><img src="%s" alt="%s"></p>', $item['image'], $item['title']));
             $writer->endElement();
             $writer->writeElement('pubDate', $item['pubDate']);
             $writer->writeElement('guid', $item['guid']);
