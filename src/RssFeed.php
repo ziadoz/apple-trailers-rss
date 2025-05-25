@@ -37,6 +37,7 @@ readonly class RssFeed
             $writer->writeElement('title', $item['title']);
             $writer->writeElement('link', $item['link']);
             $writer->startElement('description');
+            $writer->writeRaw($item['title'] . ': ' . $item['link'] . "\n");
             $writer->writeCdata($item['description']);
             $writer->endElement();
             $writer->writeElement('pubDate', $item['pubDate']);
