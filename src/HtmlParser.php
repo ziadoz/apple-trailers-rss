@@ -27,11 +27,11 @@ readonly class HtmlParser
             $image = $this->parseImage($element);
 
             $items[] = [
-                'title'       => $title,
-                'link'        => $link,
-                'description' => sprintf('<img src="%s" alt="%s">', $image, $title),
-                'pubDate'     => new DateTime()->format(DATE_RSS),
-                'guid'        => hash('xxh128', $link),
+                'title'   => $title,
+                'link'    => $link,
+                'image'   => $image,
+                'pubDate' => new DateTime()->format(DATE_RSS),
+                'guid'    => hash('xxh128', $link),
             ];
         }
 
