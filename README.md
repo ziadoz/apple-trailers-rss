@@ -2,7 +2,7 @@
 
 An RSS feed of the Apple Trailers website. That's it.
 
-Note: This feed is for my personal use only with NetNewsWire, because I love films.
+Note: I built this RSS feed for fun and for my personal use only with NetNewsWire, because I love films.
 
 ## Requirements
 
