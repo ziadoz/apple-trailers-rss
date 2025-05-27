@@ -22,8 +22,6 @@ readonly class RssFeed
         $writer->writeElement('link', $this->url);
         $writer->writeElement('description', 'An RSS of Apple Trailers.');
         $writer->writeElement('language', 'en-us');
-        $writer->writeElement('pubDate', 'Sat, 24th May 2025 18:00:00 +00:00:00');
-        $writer->writeElement('lastBuildDate', new DateTime()->format(DATE_RSS));
         $writer->writeElement('docs', 'https://www.rssboard.org/rss-specification');
 
         $writer->startElement('atom:link');
@@ -40,7 +38,6 @@ readonly class RssFeed
             $writer->writeCdata(sprintf('<p>%s: <a href="%s">%s</a></p>', $item['title'], $item['link'], $item['link']));
             $writer->writeCdata(sprintf('<p><img src="%s" alt="%s"></p>', $item['image'], $item['title']));
             $writer->endElement();
-            $writer->writeElement('pubDate', $item['pubDate']);
             $writer->writeElement('guid', $item['guid']);
             $writer->endElement();
         }
