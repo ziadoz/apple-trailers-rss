@@ -13,7 +13,7 @@ readonly class HtmlParser
     private const string FILM_LINK_ATTR  = 'href';
     private const string FILM_IMAGE_ATTR = 'srcset';
 
-    public function __construct(readonly private string $html)
+    public function __construct(private string $html)
     {
     }
 
