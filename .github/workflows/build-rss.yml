@@ -1,49 +1,49 @@
-name: Build RSS Feed
-
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 12 * * *'
-  push:
-    branches: [main]
-
-concurrency:
-  group: php-script-${{ github.ref }}
-  cancel-in-progress: true
-
-permissions:
-  contents: write
-
-jobs:
-  run-script:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Install PHP 8.4
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.4'
-
-      - name: Build RSS Feed
-        run: php index.php
-
-      - name: Show RSS Feed
-        run: cat output/apple-trailers.rss
-
-      - name: Commit RSS Feed
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: CI built RSS feed
-          file_pattern: output/apple-trailers.rss
-          add_options: -f
-
-      - name: Attach RSS Feed to Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: latest
-          files: output/apple-trailers.rss
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#name: Build RSS Feed
+#
+#on:
+#  workflow_dispatch:
+#  schedule:
+#    - cron: '0 12 * * *'
+#  push:
+#    branches: [main]
+#
+#concurrency:
+#  group: php-script-${{ github.ref }}
+#  cancel-in-progress: true
+#
+#permissions:
+#  contents: write
+#
+#jobs:
+#  run-script:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Checkout Repository
+#        uses: actions/checkout@v4
+#
+#      - name: Install PHP 8.4
+#        uses: shivammathur/setup-php@v2
+#        with:
+#          php-version: '8.4'
+#
+#      - name: Build RSS Feed
+#        run: php index.php
+#
+#      - name: Show RSS Feed
+#        run: cat output/apple-trailers.rss
+#
+#      - name: Commit RSS Feed
+#        uses: stefanzweifel/git-auto-commit-action@v5
+#        with:
+#          commit_message: CI built RSS feed
+#          file_pattern: output/apple-trailers.rss
+#          add_options: -f
+#
+#      - name: Attach RSS Feed to Release
+#        uses: softprops/action-gh-release@v1
+#        with:
+#          tag_name: latest
+#          files: output/apple-trailers.rss
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
